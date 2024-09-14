@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Chart with Bubble Animation</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Bubble Animation */
+        .bubbles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -100px;
+            background-color: rgba(173, 216, 230, 0.6);
+            border-radius: 50%;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0.4;
+            }
+            50% {
+                transform: translateY(-500px) translateX(50px);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-1000px) translateX(0);
+                opacity: 0;
+            }
+        }
+
+        /* Adjusting bubble sizes */
+        .bubble:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            left: 15%;
+        }
+
+        .bubble:nth-child(2) {
+            width: 80px;
+            height: 80px;
+            left: 40%;
+            animation-duration: 12s;
+        }
+
+        .bubble:nth-child(3) {
+            width: 120px;
+            height: 120px;
+            left: 65%;
+            animation-duration: 18s;
+        }
+
+        .bubble:nth-child(4) {
+            width: 60px;
+            height: 60px;
+            left: 85%;
+            animation-duration: 10s;
+        }
+
+        /* Table styling */
+        .table-container {
+            width: 60%;
+            background-color: #f5faff;
+            border: 1px solid #000;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s ease-in-out;
+        }
+
+        /* Pop-up effect for the whole chart */
+        .table-container:hover {
+            transform: scale(1.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            font-size: 18px;
+        }
+
+        th {
+            background-color: #6495ed;
+            color: white;
+        }
+
+        td {
+            background-color: rgba(173, 216, 230, 0.2);
+        }
+
+        /* Pop-up effect on hover for rows */
+        tr {
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        tr:hover {
+            background-color: rgba(100, 149, 237, 0.3);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            th, td {
+                padding: 15px;
+                font-size: 16px;
+            }
+
+            .table-container {
+                width: 90%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Bubble animation background -->
+    <div class="bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <!-- Table -->
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>S.N</th>
+                    <th>CAUSES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>UNDERSTAND THE REASONS</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>CLEAR COMMUNICATION</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>SET EXPECTATIONS</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>TRAINING AND SKILL BUILDING</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>FEEDBACK LOOP</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
